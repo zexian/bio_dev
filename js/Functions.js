@@ -182,7 +182,9 @@ function ConvertLocation(lan,log){
         geocoder.geocode({ 'latLng': latLng}, function (results, status) {
            if (status == google.maps.GeocoderStatus.OK) {
               console.log(results[0].formatted_address);
-              geolocation=results;
+              
+              document.getElementById('txt').placeholder=results[0].formatted_address;
+
            }
            else {
               console.log("Geocoding failed: " + status);
@@ -190,4 +192,4 @@ function ConvertLocation(lan,log){
         });
 }
 }
-window.onload = getLocation;
+
