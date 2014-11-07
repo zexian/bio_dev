@@ -1,0 +1,84 @@
+.outer {
+        position: relative;
+        background: url(../images/pic.png);
+        width: 225px;
+        height: 225px;
+
+        margin-left:auto;
+        margin-right:auto;
+      }
+.bottomleft {
+        position: absolute;
+        bottom: 0;
+        left: 2em;
+        width: 100px;
+        font-weight: bold;
+        color: #fff;
+        font-family:'Londrina Solid';
+        font-size:250%;
+      }
+      /*//water temparature at the bottom*/
+
+.bottomright {
+        position: absolute;
+        bottom: 1.5em;
+        right: 1.5em;
+        width: 100px;
+        font-weight: bold;
+        color: #fff;
+        font-family:'Londrina Solid';
+        font-size:250%;
+      }
+ /*     the heitht of the wave*/
+
+.ftsign {
+        position: absolute;
+        bottom: 4em;
+        right: 2.5em;
+        width: 100px;
+        font-weight: bold;
+        color: #fff;
+        font-family:'Londrina Solid';
+       /* font-size:250%;*/
+      }
+ /*     the heitht of the wave*/
+
+.topright {
+        position: absolute;
+        top: 0.2em;
+        right: 0.8em;
+        width: 100px;
+        
+        color: #fff;
+        font-weight: bold;
+        font-size: 11px;
+        font-family:'Londrina Solid';
+        font-size:250%;
+      }
+     /* //wind spead*/
+.mphsign {
+        position: absolute;
+        top: 2.8em;
+        right: 0em;
+        width: 100px;
+        
+        color: #fff;
+        font-weight: bold;
+        font-size: 11px;
+        font-family:'Londrina Solid';
+        /*font-size:250%;*/
+      }
+     /* //wind spead*/
+
+.topleft {
+        position: absolute;
+        top: 1.4em;
+        left: 0.2em;
+        width: 100px;
+        color: #fff;
+        font-weight: bold;
+        font-size: 11px;
+        font-family:'Londrina Solid';
+        font-size:250%;
+      }
+  /*    air temparature*/

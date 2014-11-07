@@ -1,0 +1,126 @@
+<div  class="row" ng-hide="alarm">
+                </br></br></br>
+                <h2 style="color:Black"> Time Interested </h2>
+                <div class="col-sm-3"></div>
+                <div class="col-sm-6">
+
+                    <div align = center>
+                      <select style="width:200px; height:50px" size=1 id="hour">
+                        <option value="1" selected>Now</option>
+                        <option value="2">2 hour later </option>
+                        <option value="3">3 hour later </option>
+                        <option value="4">4 hour later</option>
+                        <option value="5">5 hour later</option>
+                        <option value="6">6 hour later</option>
+                        <option value="6">7 hour later</option>
+                        <option value="6">8 hour later</option>
+                        <option value="6">9 hour later</option>
+                        <option value="6">10 hour later</option>
+                        <option value="6">11 hour later</option>
+                        <option value="6">12 hour later</option>
+
+                      </select>
+                    </div>
+
+                    <!-- <button class="btn btn-default" onclick="storage.setAlarm('true'); location.reload()"> YES! </button>
+                    <button class="btn btn-default" onclick="storage.setAlarm('false'); location.reload()"> Nope </button>
+                </div> -->
+                <div class="col-sm-3"></div>
+                 </br>
+                 </br>
+                 </br>
+                 </br>
+                 </br>
+            </div>
+
+
+
+
+
+            <div class="col-sm-6">
+                    <button class="btn btn-default btn-block" id="current-button" style="background-color:Black; color:white; width:200px;height:20;margin-left:auto;margin-right:auto" onclick="currentAddFunction()" > Current Address </button> <br/>
+        
+                    </br>
+                    <button class="btn btn-default btn-block" id="search-button" style="background-color:Black; color:white; margin-left:auto;margin-right:auto; width:200px;height:20 "onclick="searchAddFunction()"> New Address </button> <br/>
+                    
+                </div>
+
+
+                 <img src="images/pic.png" style="width:50%;height:50%; align:middle">
+
+
+
+                 <input type="text"class="inputs" placeholder="e-mail" /> 
+<br> 
+ <input type="password" class="inputs"placeholder="Password" /> 
+             
+           
+<style> 
+ 
+ .inputs {
+    background: #D3D3D3;
+    background: -moz-linear-gradient(top, #D3D3D3 0%, #D9D9D9 38%, #E5E5E5 82%, #E7E7E7 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #D3D3D3), color-stop(38%, #D9D9D9), color-stop(82%, #E5E5E5), color-stop(100%, #E7E7E7));
+    background: -webkit-linear-gradient(top, #D3D3D3 0%, #D9D9D9 38%, #E5E5E5 82%, #E7E7E7 100%);
+    background: -o-linear-gradient(top, #D3D3D3 0%, #D9D9D9 38%, #E5E5E5 82%, #E7E7E7 100%);
+    background: -ms-linear-gradient(top, #D3D3D3 0%, #D9D9D9 38%, #E5E5E5 82%, #E7E7E7 100%);
+    background: linear-gradient(to bottom, #D3D3D3 0%, #D9D9D9 38%, #E5E5E5 82%, #E7E7E7 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#d3d3d3', endColorstr='#e7e7e7', GradientType=0 );
+    display: block;
+    padding: 12px 10px;
+    color: #999;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px #FFF;
+    border: 1px solid rgba(16, 103, 133, 0.6);
+    box-shadow: 0 0 3px rgba(255, 255, 255, 0.5), inset 0 1px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+    outline: 0;
+    width: 270px;
+}
+</style> 
+
+
+
+
+
+
+<input class="textbox"type="text"> 
+<br><br> 
+<input class="textbox"type="text"> 
+<br><br> 
+<input class="textbox"type="text"> 
+ 
+<style> 
+.textbox { 
+    background: #FFF url(http://html-generator.weebly.com/files/theme/input-text-9.png) no-repeat 4px 4px; 
+    border: 1px solid #999; 
+    outline:0; 
+    padding-left: 25px;
+    height:25px; 
+    width: 275px; 
+  } 
+</style> 
+
+
+<!-- Functino to execute after clicking the current address button-->
+                <script type="text/javascript">
+                       function currentAddFunction(){
+                                //onclick="storage.setLocation('Evanston, IL'); location.reload()"
+                                //get user location is this chunk
+                                var delay = 1000
+                                setInterval(function(){
+                                    window.location.href = "./result.html";
+                                },delay);         
+                        };
+
+                        function searchAddFunction(){
+                                //onclick="storage.setLocation('Evanston, IL'); location.reload()"
+                                //get user location is this chunk
+                                var delay = 1000
+                                setInterval(function(){
+                                    window.location.href = "./searchAdd.html";
+                                },delay);         
+                        };
+                </script>
+
