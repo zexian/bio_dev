@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html ng-app="myApp">
     <head>
         <meta charset="utf-8" />
@@ -12,11 +11,8 @@
         <title>Buoy</title>
         <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
         <script type="text/javascript" src="js/snow.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-        
+        <script type="text/javascript" src="js/index.js"></script>      
         <script type="text/javascript" src="js/Functions.js"></script>
-
-        <script type="text/javascript" src="js/demo.js"></script>
         <script type="text/javascript" src="js/storage/storage.js"></script>
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script>
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular-route.min.js"></script>
@@ -43,22 +39,26 @@
              <div id="show_temperature"></div>
         </div>
 
+<!--- -............................................The Background is defined in the css/background.css->
 
 
-         <!-- Weather data in the form-->
+
+<!--- -............................................Load the data obtaind from api to here, do this in your defined function, the data format are defined in the css/DataFormat, I use different classes to make sure the data has a absolute and relative postion in the image-->
         <div class="outer">
-            <div class="bottomleft">
+            <div id="water_temp" class="bottomleft">
                 <p>63</p>
             </div>
-            <div class="bottomright">
+            <div id="water_height" class="bottomright">
                 <p>5</p>
             </div>
-            <div class="topright">
+            <div id="wind_speed" class="topright">
                 <p>11</p>
             </div>    
-            <div class="topleft">
+            <div id="air_temp" class="topleft">
                 <p>76</p>
             </div> 
+<!--- -............................................Load the data obtaind from api to here, do this in your defined function, the data format are defined in the css/DataFormat, I use different classes to make sure the data has a absolute and relative postion in the image-->          
+
             <div class="ftsign">
                 <p>ft</p>
             </div> 
@@ -67,17 +67,22 @@
             </div> 
         </div>
 
-        <!-- Address textbox -->
+<!-- Address textbox, the initial address is poped in at the js/Functions  ConvertLocation(), check there, the font and style of the textbox are defined in the css/Background.css, after user typed in address, click the addButton and call the addFunction   -->
         <div class="textboxes">
             <ul>
                 <li><input type="text" id="txt" placeholder="Chicago" /></li>
             </ul>
         </div>
+<!-- Address textbox, the initial address is poped in at the js/Functions  ConvertLocation(), check there, the font and style of the textbox are defined in the css/Background.css   -->
 
-        <!-- The three buttons with their functions in each -->
+
+
+
         <div id="my_footer" class="text-center">
-            <p class="muted credit"> geolocation[0].formatted_address</p>
+            <p class="muted credit"> Copy Right @ Team Green</p>
         </div>
+
+<!-- The three buttons at the conner, the functions of the buttons are defined in the js/Functions seetingFunction, socialFunction, addFunction, edit the function there  -->
         <div id="setting" >
             <button id="setting_button"  onClick="settingFunction()"><img src="images/setting.png" /></button>
         </div>
@@ -87,27 +92,17 @@
         <div id="setting" >
             <button id="address_button"  onClick="addressFunction()"><img src="images/address.png" /></button>
         </div>
+<!-- The three buttons at the conner, the functions of the buttons are defined in the js/Functions seetingFunction, socialFunction, addFunction, edit the function there  -->
 
 
-
-        <!-- initial the app-->
+        <!-- when it is ready, run these functions -->
         <script type="text/javascript">
         $( function() {
             app.initialize();
-            var demo_mode = 1;
+            storage.initialize( JSON.stringify( new Array( "0", "0", "0", "0", "0", "0", "0") ));
+            //Get the geolocation and translate it into address, and then pop the address into the address textbox, these functions are defined in the js/Functions 
             getLocation();
             
-
-            storage.initialize( JSON.stringify( new Array( "0", "0", "0", "0", "0", "0", "0") ));
-            
-            if (demo_mode) {
-                var onPhone = 1;
-                demo.initialize(onPhone);
-            } else {
-                refreshStorage();
-                index_message();
-                check_weather();
-            }
         });
         </script>
 
