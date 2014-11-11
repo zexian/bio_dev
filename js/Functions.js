@@ -17,6 +17,21 @@ function settingFunction(){
                   $(this).val('Save');
               }     
  };
+
+  function detailFunction(){
+         //alert('clicked detail buttion');
+         $('.b_form').slideToggle();     
+         // if ($('.textboxes').is(':visible')) {
+         //          //$('.textboxes').hide();
+         //          // do save info
+         //          $(this).val('Edit');
+         //      }
+         //      else {
+         //          $('.textboxes').show();
+         //          $(this).val('Save');
+         //      }     
+ };
+
  function onDeviceReady(){
      document.addEventListener('pause', onPause, false);
      document.addEventListener('resume', onResume, false);

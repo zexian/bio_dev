@@ -8,6 +8,7 @@
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="css/DataFormat.css" />
         <link rel="stylesheet" type="text/css" href="css/BackGround.css" />
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
         <title>Buoy</title>
         <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
         <script type="text/javascript" src="js/snow.js"></script>
@@ -67,6 +68,21 @@
             </div> 
         </div>
 
+
+<!-- Detail textbox, If the user click this button, a list of details will be showed by, user could close it by double clicking/Background.css   -->
+        <div class="Buoy_Detail" id= "buoy_detail">
+            <div class="b_form" id="pop_out_form" >
+                <h2>Bubuy</h2>
+                <span class="status"></span>
+                <textarea id="buoy_detail_data" placeholder="detail buoy data here"></textarea>
+                
+            </div>
+        </div>
+<!-- Detail textbox, If the user click this button, a list of details will be showed by, user could close it by double clicking/Background.css   -->
+
+
+
+
 <!-- Address textbox, the initial address is poped in at the js/Functions  ConvertLocation(), check there, the font and style of the textbox are defined in the css/Background.css, after user typed in address, click the addButton and call the addFunction   -->
         <div class="textboxes">
             <ul>
@@ -74,13 +90,14 @@
             </ul>
         </div>
 <!-- Address textbox, the initial address is poped in at the js/Functions  ConvertLocation(), check there, the font and style of the textbox are defined in the css/Background.css   -->
+        
 
 
 
 
-        <div id="my_footer" class="text-center">
+        <!-- <div id="my_footer" class="text-center">
             <p class="muted credit"> Copy Right @ Team Green</p>
-        </div>
+        </div> -->
 
 <!-- The three buttons at the conner, the functions of the buttons are defined in the js/Functions seetingFunction, socialFunction, addFunction, edit the function there  -->
         <div id="setting" >
@@ -92,6 +109,10 @@
         <div id="setting" >
             <button id="address_button"  onClick="addressFunction()"><img src="images/address.png" /></button>
         </div>
+        <div id="setting" >
+            <button id="detail_button"  onClick="detailFunction()"><img src="images/middle.png" /></button>
+        </div>
+
 <!-- The three buttons at the conner, the functions of the buttons are defined in the js/Functions seetingFunction, socialFunction, addFunction, edit the function there  -->
 
 
@@ -99,6 +120,7 @@
         <script type="text/javascript">
         $( function() {
             app.initialize();
+            $('.b_form').hide()
             storage.initialize( JSON.stringify( new Array( "0", "0", "0", "0", "0", "0", "0") ));
             //Get the geolocation and translate it into address, and then pop the address into the address textbox, these functions are defined in the js/Functions 
             getLocation();

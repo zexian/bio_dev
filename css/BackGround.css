@@ -78,6 +78,23 @@ body {
                   top: 0;
 
               }
+              #detail_button{
+                  background-color: Transparent;
+                  background-repeat:no-repeat;
+                  border: none;
+                  cursor:pointer;
+                  overflow: hidden;
+                  outline:none;
+                  cursor:pointer;
+                  position: relative;
+                  bottom:0;
+                  margin-left: auto;
+                  margin-right:auto;
+                  
+                      
+                      
+
+              }
               #txt{
                     background: #FFF url(http://html-generator.weebly.com/files/theme/input-text-9.png) no-repeat 4px 4px; 
                     border: 1px solid #999; 
@@ -90,6 +107,39 @@ body {
                     top: 5px;
                     opacity: 0.4;
               }
+              #detail_txt{
+                    background: #FFF url(http://html-generator.weebly.com/files/theme/input-text-9.png) no-repeat 4px 4px; 
+                    border: 1px solid #999; 
+                    outline:0; 
+                    padding-left: 25px;
+                    height:25px; 
+                    width: 300px; 
+                    position: fixed;
+                    left: 40px;
+                    bottom: 5px;
+                    opacity: 0.4;
+              }
+              /*.b_form{
+                    clear:both;
+                    height:200px;
+                    width:200px;
+                    border:1px solid #000;
+                    background:#0001;
+                    padding:15px;
+                    display: none;
+
+              }
+              .b_form textarea {
+                    height:170px;
+                    width:400px;
+                    padding:5px;
+              }
+              .b_form .status {
+                    height:170px;
+                    width:400px;
+                    padding:5px;
+              }*/
+
               /*#middle_button{
                   background-color: Transparent;
                   background-repeat:no-repeat;
