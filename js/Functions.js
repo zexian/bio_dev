@@ -169,6 +169,8 @@ function showLocation(pos) {
        //SavetoCloud();
        console.log(geo_latitude);
        console.log(geo_longtitude);
+       //pase the location to retrieve data
+       app.retrieveData(geo_latitude,geo_longtitude);
        ConvertLocation(geo_latitude,geo_longtitude);
      }
 function ErrorHandler(err) {
