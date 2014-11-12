@@ -53,53 +53,34 @@ var app = {
         console.log(geo_longtitude+'dsfasfdadsadsf');
         
         $.ajax({
-            //crossOrigin:true,
             url : "http://www.ndbc.noaa.gov/data/latest_obs/45007.rss",
-            dataType : 'jsonp',
-            jsonp: false,
-            
-             jsonpCallback: "mydata",
-            
+            dataType : "html",
+            success : function(xml) {
+                var data =[];
+                var text = $(xml).find('item').find('description').html();
 
-            success : function(dataWeGotViaJsonp) {
-                alert("cao0");
-                console.log("sucess la");
-                var text = '';
-                var len = dataWeGotViaJsonp.length;
-                for(var i=0;i<len;i++){
-                twitterEntry = dataWeGotViaJsonp[i];
-                console.log(twitterEntry);
-                alert("cao");
-                }
+                var items = text.split('<strong>');
 
+                for(var i = 2; i<items.length; i++){
+                    var word = items[i].split('</strong>');
+                    var key = word[0].substr(0,word[0].length - 1);
+                    var value = word[1].split('<br />')[0];
+                    data[key] = word[1];
 
-
-
-                // var data =[];
-                // var text = $(xml).find('item').find('description').html();
-
-                // var items = text.split('<strong>');
-
-                // for(var i = 2; i<items.length; i++){
-                //     var word = items[i].split('</strong>');
-                //     var key = word[0].substr(0,word[0].length - 1);
-                //     var value = word[1].split('<br />')[0];
-                //     data[key] = word[1];
-
-                //     if(key=="WIND SPEED") {
-                //         $('#wind_speed>p').text(value);
-                //     } else if (key=="WATER TEMPERATURE") {
-                //         $('#water_temp>p').text(value);
-                //     } else if (key=="AIR TEMPERATURE") {
-                //         $('#air_temp>p').text(value);
-                //     }
-                //     if(i == 4) {
-                //         $('#wind_speed>p').text( ((value.split(' ')[1])*1.1507794).toFixed(1) );
-                //     } else if (i == 14) {
-                //         $('#water_temp>p').text( value.split('F')[0] + 'F' );
-                //     } else if (i == 12) {
-                //         $('#air_temp>p').text( value.split('F')[0] + 'F' );
-                //     }
+                    /*if(key=="WIND SPEED") {
+                        $('#wind_speed>p').text(value);
+                    } else if (key=="WATER TEMPERATURE") {
+                        $('#water_temp>p').text(value);
+                    } else if (key=="AIR TEMPERATURE") {
+                        $('#air_temp>p').text(value);
+                    }*/
+                    if(i == 4) {
+                        $('#wind_speed>p').text( ((value.split(' ')[1])*1.1507794).toFixed(1) );
+                    } else if (i == 14) {
+                        $('#water_temp>p').text( value.split('F')[0] + 'F' );
+                    } else if (i == 12) {
+                        $('#air_temp>p').text( value.split('F')[0] + 'F' );
+                    }
                     /*
                     <div id="water_temp" class="bottomleft">
                         <p>63</p>
@@ -130,13 +111,11 @@ var app = {
                     13: "Dew Point:</strong> 36.5&#176;F (2.5&#176;C)<br />"
                 14: "Water Temperature:</strong> 46.8&#176;F (8.2&#176;C)<br />]]>"
                     */
-                //}
+                }
 
                 // if (data && callback)
                 //     callback(data);
             }
-
-
         });
     }
 };
