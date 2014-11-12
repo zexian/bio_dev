@@ -47,43 +47,72 @@ var app = {
         console.log('Received Event: ' + id);
     },
 
-    retrieveData: function(rows, callback) {
+    retrieveData: function(callback) {
+        //alert('ajax!');
         $.ajax({
-            url : "http://api.wunderground.com/api/ed55ecb317977ec5/hourly/q/IL/Evanston.json",
-            dataType : "jsonp",
-            success : function(parsed_json) {
-                var data = [];
+            url : "http://www.ndbc.noaa.gov/data/latest_obs/45007.rss",
+            dataType : "html",
+            success : function(xml) {
+                var data =[];
+                var text = $(xml).find('item').find('description').html();
 
-                $.each( parsed_json['hourly_forecast'], function( index, value ) {
-                    if(index < rows) {
-                        var time = value['FCTTIME'];
-                        var row = {"id"         :index, 
-                                   "city"       : "Evanston", 
-                                   "state"      : "IL", 
-                                   "zip"        : "60201",
-                                   "temp"       : value['temp']['english'],
-                                   "snow_depth" : value['snow']['english'],
-                                   "rdate"      : time['year'] + "-" + time['mon_padded'] + "-" + time['mday_padded'] + " "
-                                                + time['hour'] + ":" + time['min'] + ":" + time['sec']};
-                        data.push(row);
+                var items = text.split('<strong>');
+
+                for(var i = 2; i<items.length; i++){
+                    var word = items[i].split('</strong>');
+                    var key = word[0].substr(0,word[0].length - 1);
+                    var value = word[1].split('<br />')[0];
+                    data[key] = word[1];
+
+                    /*if(key=="WIND SPEED") {
+                        $('#wind_speed>p').text(value);
+                    } else if (key=="WATER TEMPERATURE") {
+                        $('#water_temp>p').text(value);
+                    } else if (key=="AIR TEMPERATURE") {
+                        $('#air_temp>p').text(value);
+                    }*/
+                    if(i == 4) {
+                        $('#wind_speed>p').text( ((value.split(' ')[1])*1.1507794).toFixed(1) );
+                    } else if (i == 14) {
+                        $('#water_temp>p').text( value.split('F')[0] + 'F' );
+                    } else if (i == 12) {
+                        $('#air_temp>p').text( value.split('F')[0] + 'F' );
                     }
-                });
+                    /*
+                    <div id="water_temp" class="bottomleft">
+                        <p>63</p>
+                    </div>
+                    <div id="water_height" class="bottomright">
+                        <p>5</p>
+                    </div>
+                    <div id="wind_speed" class="topright">
+                        <p>11</p>
+                    </div>    
+                    <div id="air_temp" class="topleft">
+                        <p>76</p>
+                    </div>
+                    */ 
+                    /*
+                    1: "November 6, 2014 4:50 pm CST</strong><br />"
+                    2: "Location:</strong> 42.674N 87.026W<br />"
+                    3: "Wind Direction:</strong> NNW (330&#176;)<br />"
+                4: "Wind Speed:</strong> 27.2 knots<br />"
+                    5: "Wind Gust:</strong> 35.0 knots<br />"
+                    6: "Significant Wave Height:</strong> 14.4 ft<br />"
+                    7: "Dominant Wave Period:</strong> 10 sec<br />"
+                    8: "Average Period:</strong> 7.2 sec<br />"
+                    9: "Mean Wave Direction:</strong> N (353&#176;) <br />"
+                    10: "Atmospheric Pressure:</strong> 30.07 in (1018.2 mb)<br />"
+                    11: "Pressure Tendency:</strong> +0.14 in (+4.7 mb)<br />"
+                12: "Air Temperature:</strong> 41.4&#176;F (5.2&#176;C)<br />"
+                    13: "Dew Point:</strong> 36.5&#176;F (2.5&#176;C)<br />"
+                14: "Water Temperature:</strong> 46.8&#176;F (8.2&#176;C)<br />]]>"
+                    */
+                }
 
                 if (data && callback)
                     callback(data);
             }
         });
     }
-
 };
-
-function showData() {
-    $('#user_notification').toggle();
-    $('#show_temperature').toggle();
-}
-
-function hideData() {
-    $('#show_temperature').toggle();
-    $('#user_notification').toggle();
-}
-

@@ -41,9 +41,6 @@
         </div>
 
 <!--- -............................................The Background is defined in the css/background.css->
-
-
-
 <!--- -............................................Load the data obtaind from api to here, do this in your defined function, the data format are defined in the css/DataFormat, I use different classes to make sure the data has a absolute and relative postion in the image-->
         <div class="outer">
             <div id="water_temp" class="bottomleft">
@@ -121,8 +118,9 @@
         $( function() {
             app.initialize();
             $('.b_form').hide()
-            storage.initialize( JSON.stringify( new Array( "0", "0", "0", "0", "0", "0", "0") ));
-            //Get the geolocation and translate it into address, and then pop the address into the address textbox, these functions are defined in the js/Functions 
+            //storage.initialize( JSON.stringify( new Array( "0", "0", "0", "0", "0", "0", "0") ));
+            //Get the geolocation and translate it into address, and then pop the address into the address textbox, these functions are defined in the js/Functions
+            app.retrieveData();
             getLocation();
             
         });
