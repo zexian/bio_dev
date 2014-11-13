@@ -43,32 +43,25 @@ body {
 
             }
               #setting_button{
-                  background-color: Transparent;
-                  background-repeat:no-repeat;
+                  background-color: Transparent;                  
                   border: none;
-                  cursor:pointer;
-                  overflow: hidden;
-                  outline:none;
+                  cursor:pointer;                
                   position: fixed;
-                  
-                  right: 0;
-                  bottom: 0;
+                  right: 1%;
+                  bottom: 1%;
                   height:40px; 
-                    width: 40px; 
+                  width: 40px; 
 
               }
               #social_button{
-                  background-color: Transparent;
-                  background-repeat:no-repeat;
+                  background-color: Transparent;                  
                   border: none;
-                  cursor:pointer;
-                  overflow: hidden;
-                  outline:none;
+                  cursor:pointer;                
                   position: fixed;
-                  left: 0;
-                  bottom: 0;
+                  left: 1%;
+                  bottom: 1%;
                   height:40px; 
-                    width: 40px; 
+                  width: 40px; 
               }
               #address_button{
                   background-color: Transparent;
@@ -78,24 +71,19 @@ body {
                   overflow: hidden;
                   outline:none;
                   position: fixed;
-                  left: 0;
-                  top: 0;
+                  left: 0px;
+                  top: 0px;
 
               }
               #detail_button{
-                  background-color: Transparent;
-                  background-repeat:no-repeat;
+                   background-color: Transparent;                  
                   border: none;
-                  cursor:pointer;
-                  overflow: hidden;
-                  outline:none;
-                  cursor:pointer;
+                  cursor:pointer;                
                   position: fixed;
-                  bottom:0px;
-                  margin-left: auto;
-                  margin-right:auto;
+                  left: 45%;
+                  bottom: 1%;
                   height:40px; 
-                    width: 40px; 
+                  width: 40px; 
                   
                       
                       
@@ -142,7 +130,7 @@ body {
               }
               .b_form textarea {
                     height:110px;
-                    width:90%;
+                    width:95%;
                     overflow-y: scroll;
                     
               }
