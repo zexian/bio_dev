@@ -136,36 +136,15 @@ body {
                     width: 100%;
                     height: 225px;
                     top:0px;
-                    margin-left:auto;
-                    margin-right:auto;
+                    
                     
 
               }
               .b_form textarea {
                     height:110px;
-                    width:100%;
-                    
+                    width:90%;
+                    overflow-y: scroll;
                     
               }
 
-             /* .b_form .status {
-                    height:170px;
-                    width:400px;
-                    padding:5px;
-              }*/
-
-              /*#middle_button{
-                  background-color: Transparent;
-                  background-repeat:no-repeat;
-                  border: none;
-                  cursor:pointer;
-                  overflow: hidden;
-                  outline:none;
-                  position: fixed;
-
-                  position:center;
-                  bottom: 0;
-              }*/
-            
-             /* Sticky footer styles
-      -------------------------------------------------- */
+             
