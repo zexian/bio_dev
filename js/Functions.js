@@ -76,68 +76,6 @@ function settingFunction(){
      });
  }
 
- function check_weather() {
-     var dt = new Date();
-     var myDate = (dt.getMonth()+1) + "-" + dt.getDate();
-     var myTime = dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds();
-     var myMin = dt.getHours() + ":" + dt.getMinutes();
-     var mySec = dt.getSeconds();
-
-     $('#back_run_test').text('Now: ' + myDate + " "  + myTime);
-     
-     refreshStorage();
-
-     if (storage.getLocation() == 'Evanston, IL' || storage.getLocation() == 'Skokie, IL') {
-         // evanston & skokie @ 7:00; 2inch. overnigh
-
-         if (myMin == "7:0") {
-             var data = JSON.parse(storage.getSnow()), move_car = 0;
-
-             if( data[3] > 40 ) // now, but now testing on temperature
-                 move_car = 1;
-
-             if(move_car) {
-                 if(storage.getAlarm()) {
-                     window.plugin.notification.local.add({ 
-                         message: "Snow over 2 inches! Move your car now!",
-                         sound: 'TYPE_ALARM' });
-                  } else {
-                     window.plugin.notification.local.add({ 
-                         message: "Snow over 2 inches! Move your car now!" });
-                 }
-             }
-         }
-     } else if (storage.getLocation() == 'Rogers Park, IL' || storage.getLocation() == 'Lincoln Park, IL') {
-         // only notification(11/30) @ 5pm - parking ban starts 12/1->4/1 3am~7am
-         // lincon park & rogers park (recent 4inches), push right away(45 mins); check behind 2 hours;
-
-         var data = JSON.parse(storage.getSnow()), move_car = 0;
-
-         if ( myDate == "11-30" && myMin == "17:0") {
-             alert("No parking 3AM-7AM, DEC 1 - APR 1");
-         }
-
-         if( data[4] > 2 ||  data[5] > 2 ) // now, but now testing on temperature
-             move_car = 1;
-
-         move_car = 0;
-         if ( move_car ) {
-             if(storage.getAlarm()) {
-                 window.plugin.notification.local.add({ 
-                     message: "Snow over 2 inches! Move your car now!",
-                     sound: 'TYPE_ALARM' });
-              } else {
-                 window.plugin.notification.local.add({ 
-                     message: "Snow over 2 inches! Move your car now!" });
-             }
-         }
-
-     } else {
-         $('#back_run_test3').text('smth wrong');
-     }
-
-     setTimeout('check_weather()',45*60*1000);
- }
 
  function refreshStorage() {
      var data, out_strings = [];
