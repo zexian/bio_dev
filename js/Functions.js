@@ -49,33 +49,6 @@ function settingFunction(){
 
  
 
- function index_message() {
-     app.retrieveData( 8, function(data){
-         $.each(data, function( index, value ){
-             var snow = value['snow_depth'];
-             if (index==0) {
-                 $('#show_temperature').append("<strong>Snow right now: "  + snow + " in."+ '</strong><br/>');
-                 if (snow<2) {
-                     $('#user_notification').prepend("<p id='note'>No need to panic. Keep your car right where it is.  <a id='data_drop' onclick='showData(); return false;'>&#187</a></p>");
-                 }
-                 else if (snow >= 2) {
-                     $('#user_notification').prepend("<p id='note'>Move your car off the street before 8am. Don't forget your snow boots!   <a id='data_drop' onclick='showData(); return false;'>&#187</a></p>");
-                 }
-             }
-             else {
-                 $('#show_temperature').hide();
-                 if (index==1) {
-                     hour = "hour";
-                 } else {
-                     hour = "hours";
-                 }
-                 $('#show_temperature').append(index + " " + hour + " ago:  " + snow +  " in."+ '<br/>');
-             }
-         });
-         $('#show_temperature').append("<a id='go_back' onclick='hideData(); return false;'>&#171;</a>");
-     });
- }
-
 
  function refreshStorage() {
      var data, out_strings = [];
