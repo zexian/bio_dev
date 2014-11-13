@@ -6,7 +6,7 @@
         top: 7%;
         margin-left:auto;
         margin-right:auto;
-        padding-bottom: auto;
+        
       }
 .bottomleft {
         position: absolute;
@@ -44,12 +44,11 @@
       }
  /*     the heitht of the wave*/
 
-.topright {
-        position: absolute;
-        top: 0.2em;
-        right: 0.8em;
-        width: 100px;
-        
+.topright {       
+        position: relative;
+        width: 100%;
+        top:4%;
+        left: 19%;
         color: #fff;
         font-weight: bold;
         font-size: 11px;
@@ -58,11 +57,10 @@
       }
      /* //wind spead*/
 .mphsign {
-        position: absolute;
-        top: 2.8em;
-        right: 0em;
-        width: 100px;
-        
+        position: fixed;
+        width: 100%;
+        top:12%;
+        left: 28%;        
         color: #fff;
         font-weight: bold;
         font-size: 11px;
@@ -83,3 +81,8 @@
         font-size:250%;
       }
   /*    air temparature*/
+
+#buoy_detail {
+    position: relative;
+   top: 5%;
+}
