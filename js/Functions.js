@@ -18,6 +18,9 @@ function addressFunction(){
          }     
 }
 
+
+
+
 function detailFunction(){
     $('.b_form').slideToggle();     
 }

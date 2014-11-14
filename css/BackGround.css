@@ -36,14 +36,12 @@ body {
 
           
               #setting_button{
-                  background-color: Transparent;                  
-                  border: none;
-                  cursor:pointer;                
-                  position: fixed;
+                  background-color: yellow;               
+                           
+                  position:fixed;
                   right: 1%;
-                  bottom: 1%;
-                  height:40px; 
-                  width: 40px; 
+                  bottom: 0%;
+                  width:110px;
 
               }
               #social_button{
