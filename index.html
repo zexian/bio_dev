@@ -10,8 +10,8 @@
         <link rel="stylesheet" type="text/css" href="css/BackGround.css" />
         <link rel="stylesheet" type="text/css" href="css/style.css" />
         <title>Buoy</title>
-        <!--<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>-->
-        <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+        <!--<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script type="text/javascript" src="js/jquery.ajax-cross-origin.min.js"></script>
 
         <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
@@ -21,8 +21,8 @@
     </head>
 
     <body>
-<!--- -............................................The Background is defined in the css/background.css->
-<!--- -............................................Load the data obtaind from api to here, do this in your defined function, the data format are defined in the css/DataFormat, I use different classes to make sure the data has a absolute and relative postion in the image-->
+<!-- ...........................................The Background is defined in the css/background.css-->
+<!-- ...........................................Load the data obtaind from api to here, do this in your defined function, the data format are defined in the css/DataFormat, I use different classes to make sure the data has a absolute and relative postion in the image-->
         <div class="outer">
             <div id="water_temp" class="bottomleft">
                 <p>00</p>
@@ -36,7 +36,7 @@
             <div id="air_temp" class="topleft">
                 <p>00</p>
             </div> 
-<!--- -............................................Load the data obtaind from api to here, do this in your defined function, the data format are defined in the css/DataFormat, I use different classes to make sure the data has a absolute and relative postion in the image-->          
+<!-- ..............................................Load the data obtaind from api to here, do this in your defined function, the data format are defined in the css/DataFormat, I use different classes to make sure the data has a absolute and relative postion in the image-->          
 
             <div class="ftsign">
                 <p>ft</p>
@@ -75,11 +75,11 @@
 
 <!-- The three buttons at the conner, the functions of the buttons are defined in the js/Functions seetingFunction, socialFunction, addFunction, edit the function there  -->
         <div id="setting" >
-            <p id="setting_button"><a href="http://www.ndbc.noaa.gov/mobile/">Manual Search</a></p>
+            <button id="setting_button"  onClick="settingFunction()"><img src="images/setting.png" /></button>
         </div>
         <div id="setting" >
             <!--<button id="social_button"  onClick="socialFunction()"><img src="images/social.png" /></button>-->
-            <button id="social_button"  onClick="getLocation()"><img src="images/social.png" /></button>
+            <button id="social_button"  onClick="generateRequest.init()"><img src="images/social.png" /></button>
         </div>
         <div id="setting" >
             <button id="address_button"  onClick="addressFunction()"><img src="images/address.png" /></button>
@@ -96,9 +96,9 @@
         $( function() {
             //app.initialize();
             $('.b_form').hide();
-            //Get the geolocation and translate it into address, and then pop the address into the address textbox, these functions are defined in the js/Functions
-            simpleAJAXLib.init('http://www.ndbc.noaa.gov/data/latest_obs/45007.rss');
-            getLocation();
+            
+            simpleAJAXLib.init('http://www.ndbc.noaa.gov/data/latest_obs/45007.rss',1);
+            //getLocation();
         });
         </script>
 
