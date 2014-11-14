@@ -68,5 +68,7 @@
     <gap:splash gap:platform="winphone" src="www/res/screen/windows-phone/screen-portrait.jpg" />
     
     <gap:plugin name="org.apache.cordova.geolocation"/>
+    <preference name="SplashScreen" value="foo" />
+    <preference name="SplashScreenDelay" value="10000" />
     <access origin="*" />
 </widget>

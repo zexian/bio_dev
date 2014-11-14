@@ -17,6 +17,9 @@ var generateRequest = {
             alert('Searching the nearest station from ' + (coords.latitude).toFixed(2) + ', ' + (coords.longitude).toFixed(2));
             generateRequest.action(coords);
         });
+        /*var coords = {latitude: 42.0576327, longitude: -87.6759644}
+        alert('Searching the nearest station from ' + (coords.latitude).toFixed(2) + ', ' + (coords.longitude).toFixed(2));
+        generateRequest.action(coords);*/
     },
 
     action: function (location) {
