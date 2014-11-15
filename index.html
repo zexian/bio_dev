@@ -49,8 +49,7 @@
 
 <!-- Detail textbox, If the user click this button, a list of details will be showed by, user could close it by double clicking/Background.css   -->
         <div class="Buoy_Detail" id= "buoy_detail">
-            <div class="b_form" id="pop_out_form" >
-                <h4>Additional BUOY data</h4>                
+            <div class="b_form" id="pop_out_form" >                                
                 <textarea id="buoy_detail_data" placeholder="detail buoy data here"></textarea>                
             </div>
         </div>
@@ -60,9 +59,7 @@
 
 
 <!-- Address textbox, the initial address is poped in at the js/Functions  ConvertLocation(), check there, the font and style of the textbox are defined in the css/Background.css, after user typed in address, click the addButton and call the addFunction   -->
-        <div class="textboxes">
-                <input type="text" id="txt" placeholder="Chicago" />
-        </div>
+        
 <!-- Address textbox, the initial address is poped in at the js/Functions  ConvertLocation(), check there, the font and style of the textbox are defined in the css/Background.css   -->
         
 
@@ -75,17 +72,17 @@
 
 <!-- The three buttons at the conner, the functions of the buttons are defined in the js/Functions seetingFunction, socialFunction, addFunction, edit the function there  -->
         <div id="setting" >
-             <p id="setting_button"><a href="https://mapsengine.google.com/map/embed?mid=z2W5unUmmEqs.kSpZeFm1dPJE">Manual Search</a></p>
+            <button id="map_button" onclick="location.href='https://mapsengine.google.com/map/embed?mid=z2W5unUmmEqs.kSpZeFm1dPJE';"><img src="images/middle.png" width="65" height="65" /> </button>
+        </div>
+        <div id="setting">  
+            
+            <button id="current_location" onClick="generateRequest.init()"><img src="images/location.png" width="45" height="45" /> </button>
         </div>
         <div id="setting" >
-            <!--<button id="social_button"  onClick="socialFunction()"><img src="images/social.png" /></button>-->
-            <button id="social_button"  onClick="generateRequest.init()"><img src="images/social.png" /></button>
+            <button id="address_button"  onClick="addressFunction()"><img src="images/address.png" width="30" height="30"/></button>
         </div>
         <div id="setting" >
-            <button id="address_button"  onClick="addressFunction()"><img src="images/address.png" /></button>
-        </div>
-        <div id="setting" >
-            <button id="detail_button"  onClick="detailFunction()"><img src="images/middle.png" /></button>
+            <button id="detail_button"  onClick="detailFunction()"><img src="images/info.png" width="25" height="25" /></button>
         </div>
 
 <!-- The three buttons at the conner, the functions of the buttons are defined in the js/Functions seetingFunction, socialFunction, addFunction, edit the function there  -->
