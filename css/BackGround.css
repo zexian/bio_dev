@@ -1,20 +1,13 @@
 body {
                
-                background: #000 url(../images/Background2.jpg) center center fixed no-repeat;
-                -moz-background-size: cover;
-                -webkit-background-size: cover;
-                -o-background-size: cover;
-                background-size:cover;
+                background-image: url(../images/Background2.jpg);
+               
+                background-repeat: no-repeat;
+                background-size: cover;
+              
                 } 
                               
                
-               
-                .liPadding{
-                  padding-right:0px;
-                }
-            
-           
-
           
               #map_button{
                   background-color: Transparent;                
@@ -45,7 +38,7 @@ body {
                   position: fixed;
                   border: none;
                   left: 1%;
-                  bottom: 0%;               
+                  bottom: 1%;               
                 
                   
               }
@@ -66,41 +59,51 @@ body {
                   border: none;
                   cursor:pointer;                
                   position: fixed;
-                  left: 47%;
-                  top: 48%;
-                                                   
-                
+                  top: 285px;
+                  left:50%;
+                  margin-left: -13px;
+    
+                        
               }
 
-              #txt{
+         
+              .b_form textarea {
+                  position: relative;
+                  background-color: #7094FF;
+                  -webkit-border-radius: 5px;
+                   -moz-border-radius: 5px;
+                   border-radius: 5px;
+                  margin-top: 5px;
+                  height: 150px;
+                  width: 98%;
+                  overflow-y: scroll;
+                  
+                    
+              }
+
+    #txt{
+                    background: #FFF url(http://html-generator.weebly.com/files/theme/input-text-9.png) no-repeat 4px 4px; 
+                    border: 1px solid #999; 
+                    outline:0; 
+                    padding-left: 25px;
+                    height:25px;
+                    width: 70%;
+                    top: 2px;
+                    position: fixed;
+                    left: 40px;
+                    opacity: 0.8;
+              }
+              #detail_txt{
                     background: #FFF url(http://html-generator.weebly.com/files/theme/input-text-9.png) no-repeat 4px 4px; 
                     border: 1px solid #999; 
                     outline:0; 
                     padding-left: 25px;
                     height:25px; 
-                    width: 75%; 
+                    width: 300px; 
                     position: fixed;
                     left: 40px;
-                    top: 5px;
+                    bottom: 5px;
                     opacity: 0.4;
-              }
-          
-              .b_form{
-     
-                   position: fixed;
-                   width: 96%;
-                   top: 54%;
-                
-              }
-              .b_form textarea {
-                  background-color: #7094FF;
-                  
-                  height:150px;
-                  width:95%;
-                  align-self: center;
-                  overflow-y: scroll;
-                  
-                    
               }
 
              

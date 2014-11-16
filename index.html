@@ -23,6 +23,17 @@
     <body>
 <!-- ...........................................The Background is defined in the css/background.css-->
 <!-- ...........................................Load the data obtaind from api to here, do this in your defined function, the data format are defined in the css/DataFormat, I use different classes to make sure the data has a absolute and relative postion in the image-->
+        
+        <!-- Address textbox, the initial address is poped in at the js/Functions  ConvertLocation(), check there, the font and style of the textbox are defined in the css/Background.css, after user typed in address, click the addButton and call the addFunction   -->
+        <div class="textboxes">
+            <ul>
+                <input type="text" id="txt" placeholder="Chicago" />
+            </ul>
+        </div>
+<!-- Address textbox, the initial address is poped in at the js/Functions  ConvertLocation(), check there, the font and style of the textbox are defined in the css/Background.css   -->
+        
+        
+        
         <div class="outer">
             <div id="water_temp" class="bottomleft">
                 <p>00</p>
@@ -87,7 +98,7 @@
             <button id="address_button"  onClick="addressFunction()"><img src="images/address.png" width="30" height="30"/></button>
         </div>
         <div id="setting" >
-            <button id="detail_button"  onClick="detailFunction()"><img src="images/info.png" width="25" height="25" /></button>
+            <button id="detail_button"  onClick="detailFunction()"><img src="images/info.png" width="26" height="26" /></button>
         </div>
 
 <!-- The three buttons at the conner, the functions of the buttons are defined in the js/Functions seetingFunction, socialFunction, addFunction, edit the function there  -->
