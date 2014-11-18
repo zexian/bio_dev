@@ -105,7 +105,7 @@ var simpleAJAXLib = {
 
         $('#water_temp').text(water_temperature.substring(0, 2));
         $('#water_height').text(water_height.substring(0, 1));
-        $('#wind_speed').text(wind_speeds.substring(0, 4));
+        $('#wind_speed').text(wind_speeds.substring(0, 2));
         $('#air_temp').text(air_temperature.substring(0, 2));
 
         $('#buoy_detail_data').val(text);
