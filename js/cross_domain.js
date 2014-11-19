@@ -15,7 +15,16 @@ var generateRequest = {
     getCurrentLocation: function () {
         getLocation(function(coords){
             alert('Searching the nearest station from ' + (coords.latitude).toFixed(2) + ', ' + (coords.longitude).toFixed(2));
+            //update the current location here~json, find 1st item and update
+            // for(var i=0;i<jsonList.Table.length;i++){
+            //     if(jsonList.Table[i].prefer_id==1){
+            //         jsonList.Table[i].geolatitude=coords.latitude;
+            //         jsonList.Table[i].geolongtitude=coords.longitude;
+            //     }
+            // }
+
             generateRequest.action(coords);
+
         });
         /*var coords = {latitude: 42.0576327, longitude: -87.6759644}
         alert('Searching the nearest station from ' + (coords.latitude).toFixed(2) + ', ' + (coords.longitude).toFixed(2));
@@ -55,7 +64,14 @@ var simpleAJAXLib = {
     showNear: function (results) {
         var items = results.query.results.rss.channel.item;
 
-        var link = items[0].link; //nearest station
+        if(items!=null){
+            var link = items[0].link; //nearest station
+        }else{
+            var link = "http://www.ndbc.noaa.gov/station_page.php?station=chii2"; //nearest station
+        }
+
+
+        
 
         var url_station = 'http://www.ndbc.noaa.gov/data/latest_obs/' + link.split('station=')[1] + '.rss';
         simpleAJAXLib.fetchJSON(url_station, 1);

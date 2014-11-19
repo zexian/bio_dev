@@ -27,7 +27,7 @@
         <!-- Address textbox, the initial address is poped in at the js/Functions  ConvertLocation(), check there, the font and style of the textbox are defined in the css/Background.css, after user typed in address, click the addButton and call the addFunction   -->
         <div class="textboxes">
             
-            <select id="Preference">
+            <select id="Preference" onchange="select_prefer(this.value)">
             </select>
 
             <!-- <ul>
@@ -120,16 +120,7 @@
             
             generateRequest.init();
 
-            var jsonList = {"Table" :
-                 [{"prefer_id" : "2","prefer_name" : "Duke Kahanamoku Beach, Oahu, Hawaii","geolatitude":"42","geolongtitude":"45","URL_Link":"www.ndbc"},
-                  {"prefer_id" : "3","prefer_name" : "Barefoot Beach, Bonita Springs, Florida","geolatitude":"42","geolongtitude":"45","URL_Link":"www.ndbc"},
-                  {"prefer_id" : "4","prefer_name" : "St. George Island State Park","geolatitude":"42","geolongtitude":"45","URL_Link":"www.ndbc"},
-                  {"prefer_id" : "5","prefer_name" : "Waimanalo Bay State Park,Oahu, Hawaii","geolatitude":"42","geolongtitude":"45","URL_Link":"www.ndbc"},
-                   {"prefer_id" : "6","prefer_name" : "Cape Hatteras, Outer Banks, North Carolina","geolatitude":"42","geolongtitude":"45","URL_Link":"www.ndbc"}]}
-
-
-                //add a json data, ways to push in items
-                   jsonList.Table.push({"prefer_id" : "1","prefer_name" : "current location ","geolatitude":"42","geolongtitude":"45","URL_Link":"www.ndbc"});
+            
       
             
                 //populate data into the textbox
