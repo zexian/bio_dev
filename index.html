@@ -27,7 +27,7 @@
         <!-- Address textbox, the initial address is poped in at the js/Functions  ConvertLocation(), check there, the font and style of the textbox are defined in the css/Background.css, after user typed in address, click the addButton and call the addFunction   -->
         <div class="textboxes">
             <ul>
-                <input type="text" id="txt" placeholder="Chicago" />
+                <input type="text" id="txt" placeholder="Evanston, IL" />
             </ul>
         </div>
 <!-- Address textbox, the initial address is poped in at the js/Functions  ConvertLocation(), check there, the font and style of the textbox are defined in the css/Background.css   -->
@@ -36,16 +36,16 @@
         
         <div class="outer">
             <div id="water_temp" class="bottomleft">
-                <p>00</p>
+                <p></p>
             </div>
             <div id="water_height" class="bottomright">
-                <p>00</p>
+                <p></p>
             </div>
             <div id="wind_speed" class="topright">
-                <p>00</p>
+                <p></p>
             </div>    
             <div id="air_temp" class="topleft">
-                <p>00</p>
+                <p></p>
             </div> 
 <!-- ..............................................Load the data obtaind from api to here, do this in your defined function, the data format are defined in the css/DataFormat, I use different classes to make sure the data has a absolute and relative postion in the image-->          
 
@@ -82,36 +82,40 @@
         </div> -->
 
 <!-- The three buttons at the conner, the functions of the buttons are defined in the js/Functions seetingFunction, socialFunction, addFunction, edit the function there  -->
-        <div id="setting" >
-            <button id="map_button" onclick="location.href='https://mapsengine.google.com/15549545334491096835-05414812628978701557-4/mapview/?authuser=0';"><img src="images/middle.png" width="60" height="60" /> </button>
+        <div>
+            <button id="map_button" onclick="location.href='https://mapsengine.google.com/15549545334491096835-05414812628978701557-4/mapview/?authuser=0';"><img src="images/middle.png" width="60" height="60" /></button>
         </div>
-        <div id="setting">  
-            
-            <div id="setting" >
-            <button id="manual_button" onclick="location.href='http://www.ndbc.noaa.gov/mobile/';"><img src="images/manual.png" width="35" height="40" /> </button>
+        <div>
+            <button id="manual_button" onclick="location.href='http://www.ndbc.noaa.gov/mobile/';"><img src="images/manual.png" width="35" height="40" /></button>
+            <!--<button id="manual_button"><img src="images/manual.png" width="35" height="40" /></button>-->
         </div>
-        <div id="setting">
+        <div>
             
             <button id="current_location" onClick="generateRequest.init()"><img src="images/location.png" width="40" height="40" /> </button>
         </div>
-        <div id="setting" >
+        <div>
             <button id="address_button"  onClick="addressFunction()"><img src="images/address.png" width="30" height="30"/></button>
         </div>
-        <div id="setting" >
+        <div>
             <button id="detail_button"  onClick="detailFunction()"><img src="images/info.png" width="26" height="26" /></button>
         </div>
 
 <!-- The three buttons at the conner, the functions of the buttons are defined in the js/Functions seetingFunction, socialFunction, addFunction, edit the function there  -->
 
+        <div id="manual_search">XXX<iframe src="http://www.ndbc.noaa.gov/mobile/"></iframe></div>
 
         <!-- when it is ready, run these functions -->
         <script type="text/javascript">
         $( function() {
-            //app.initialize();
             $('.b_form').hide();
+
+            /*$('#manual_button').click(function(){
+                $('#manual_search').show();
+            });*/
+            $('#manual_search').hide();
             
-            simpleAJAXLib.init('http://www.ndbc.noaa.gov/data/latest_obs/45007.rss',1);
-            //getLocation();
+            generateRequest.init();
+            //simpleAJAXLib.init('http://www.ndbc.noaa.gov/data/latest_obs/45007.rss',1);
         });
         </script>
 

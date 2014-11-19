@@ -84,10 +84,10 @@ var simpleAJAXLib = {
 
 
         //writte the data to each form
-        var water_temperature = 'x';
-        var water_height = 'x';
-        var wind_speeds = 'x';
-        var air_temperature = 'x';
+        var water_temperature = '?';
+        var water_height = '?';
+        var wind_speeds = '?';
+        var air_temperature = '?';
 
         for(i=0;i<dataarray.length;i++){
 
