@@ -23,6 +23,21 @@ function detailFunction(){
     $('.b_form').slideToggle();     
 }
 
+function Populate_Preference(jsonList){
+
+        jsonList.Table.sort(function(a,b){
+                return a.prefer_id - b.prefer_id;
+            });
+      
+
+        var listItems= "";
+        for (var i = 0; i < jsonList.Table.length; i++){
+          listItems+= "<option value='" + jsonList.Table[i].prefer_id + "'>" + jsonList.Table[i].prefer_name + "</option>";
+        }
+        $("#Preference").html(listItems);
+        
+}
+
 
 
 
