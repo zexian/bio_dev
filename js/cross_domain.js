@@ -17,7 +17,6 @@ var generateRequest = {
 
     getCurrentLocation: function () {
         getLocation(function(coords){
-            //alert('Searching the nearest station from ' + (coords.latitude).toFixed(2) + ', ' + (coords.longitude).toFixed(2));
             /*
             update the current location here~json, find 1st item and update
             for(var i=0;i<jsonList.Table.length;i++) {
@@ -27,7 +26,6 @@ var generateRequest = {
                 }
             }*/
             generateRequest.action(coords);
-
         });
     }
 }
@@ -68,14 +66,18 @@ var simpleAJAXLib = {
             }
         });*/
 
-        // fetch the nearest data: items[0]
-        if(items!=null){
-            nearest = items[0].title.split(' ')[1].toLowerCase(); //nearest station
+        if(items!=null) {
+            $.each(items, function(i,val) {
+                if (val.title!='SHIP') {
+                    nearest = val.title.split(' ')[1].toLowerCase();
+                    return false;
+                }
+            });
         }
 
         if(nearest == null) {
-            alert("You are too far from beach!!! Give you sunshine from Miami!!!");
-            nearest = "vakf1"; //nearest station
+            alert("No available buoy station nearby!!!\nGive you sunshine from Miami!!!");
+            nearest = "vakf1";
         }
 
         var url_station = 'http://www.ndbc.noaa.gov/data/latest_obs/' + nearest + '.rss';
@@ -85,13 +87,18 @@ var simpleAJAXLib = {
     showStation: function (results) {
         var dataarray = [];
         //Get the data out of the results 
+        var station_node = results.query.results.rss.channel.item
         var text = "";
-        var text2 = results.query.results.rss.channel.item.description;
+        var text2 = station_node.description;
         var items2 = text2.split('<strong>');
-        
-        alert('Fetch data from nearest: ' + results.query.results.rss.channel.item.title.split('-')[0]);
 
-        //parse the data and load the object data to dataarray and text data to text
+        
+        alert('Data from: \n' + station_node.title);
+
+        // set a localStorage
+        localStorage.setItem("currentStation", station_node.title);
+
+        // parse the data and load the object data to dataarray and text data to text
         for(i = 1 ; i < items2.length;i++){
             var temptext = (items2[i]);
             var values = temptext.split('</strong>');

@@ -1,3 +1,6 @@
+
+/* Manual search using api from "http://geocoder.opencagedata.com" */
+
 var search_location = {
     
     input: 0,
@@ -12,7 +15,7 @@ var search_location = {
 
     action: function() {
         this.geocoding( function(coords){
-            //console.log(coords.lat + '/' + coords.lon);
+            console.log('lat=' + coords.lat + '&lon=' + coords.lon);
             generateRequest.init(coords);
         });
     },
@@ -23,9 +26,14 @@ var search_location = {
 
         // Rua Cafelândia, Carapicuíba, Brasil => Rua%20Cafel%C3%A2ndia,+Carapicu%C3%ADba,+Brasil
         // split by ", " => urlencode each => concat by ",+"
-        var inputs = this.input.split(', ');
+        var inputs = this.input.split(',');
+        if(inputs.length < 2) {
+            alert('Please type in format: Evanston, IL');
+            return false;
+        }
+
         $.each(inputs, function( i, val ) {
-            strings.push(encodeURI(val));
+            strings.push( encodeURI( val.replace(/\s/g, '')));
         });
         var query = strings.join(",+");
 
@@ -34,6 +42,10 @@ var search_location = {
             dataType : "jsonp",
             success : function(parsed_json) {
 
+                if(parsed_json['results'][0] == null) {
+                    alert('No search result. Please check your input again.');
+                    return false;
+                }
                 var coords = parsed_json['results'][0]['geometry'];
 
                 if (coords && callback)

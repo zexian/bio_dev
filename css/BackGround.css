@@ -1,114 +1,132 @@
+
 body {
-               
-                background-image: url(../images/Background2.jpg);
-               
-                background-repeat: no-repeat;
-                background-size: cover;
-              
-                } 
-                              
-               
-          
-              #map_button{
-                  background-color: Transparent;                
-                  cursor:pointer;                
-                  position:fixed;
-                  border: none;
-                  bottom: 0%;             
-                  left: 50%;
-                  margin-left: -30px;
-                  
-                  
-                 
-              }
 
-                #manual_button{
-                 background-color: Transparent;                
-                  cursor:pointer;                
-                  position: fixed;
-                  border: none;
-                  right: 1%;
-                  bottom: 0%;             
-                  
-                 
-              }
-              #current_location{
-                  background-color: Transparent;                
-                  cursor:pointer;                
-                  position: fixed;
-                  border: none;
-                  left: 1%;
-                  bottom: 0%;               
-                
-                  
-              }
-              #address_button{
-                  background-color: Transparent;
-                  background-repeat:no-repeat;
-                  border: none;
-                  cursor:pointer;
-                  overflow: hidden;
-                  outline:none;
-                  position: fixed;
-                  left: 0px;
-                  top: 0px;
-
-              }
-              #detail_button{
-                   background-color: transparent;                  
-                  border: none;
-                  cursor:pointer;                
-                  position: fixed;
-                  margin-top: 253px;
-                  left:50%;
-                  margin-left: -13px;
+    text-align: center;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+    font-weight: 300;
+    width: 100%
+    height:100%;
+    background-image: url(../images/Background2.jpg);
     
-                        
-              }
+    background-repeat: no-repeat;
+    background-size: cover;              
+}
 
-         
-              .b_form textarea {
-                  position: fixed;
-                  background-color: #7094FF;              
-                  border-radius: 10px;
-                  margin-top:290px;  
-                  margin-bottom: 90px;
-                  height: 150px;
-                  overflow:auto;
-                  color: white;
+html{
+    width: 100%;
+    height: 100%;
+}
 
-                                 
-                  width: 94%;                 
-                  margin-left: -47%
-                  
-                    
-              }
+#map_button{
+    background-color: Transparent;                
+    cursor:pointer;                
+    position:fixed;
+    border: none;
+    bottom: 0%;
+    left: 50%;
+    margin-left: -30px;
+}
 
-              .preference{
-                    /*background: #FFF url(http://html-generator.weebly.com/files/theme/input-text-9.png) no-repeat 4px 4px; */
-                    
-                    background: #FFF;
-                    border: 1px solid #999; 
-                    outline:0; 
-                    padding-left: 25px;
-                    height:25px;
-                    width: 70%;
-                    top: 2px;
-                    position: fixed;
-                    left: 40px;
-                    opacity: 0.8;
-              }
-              #detail_txt{
-                    background: #FFF url(http://html-generator.weebly.com/files/theme/input-text-9.png) no-repeat 4px 4px; 
-                    border: 1px solid #999; 
-                    outline:0; 
-                    padding-left: 25px;
-                    height:25px; 
-                    width: 300px; 
-                    position: fixed;
-                    left: 40px;
-                    bottom: 5px;
-                    opacity: 0.4;
-              }
+#manual_button{
+    background-color: Transparent;
+    cursor:pointer;
+    position: fixed;
+    border: none;
+    right: 1%;
+    bottom: 0%;
+}
 
-             
+#current_location{
+    background-color: Transparent;
+    cursor:pointer;
+    position: fixed;
+    border: none;
+    left: 1%;
+    bottom: 0%;
+}
+
+#address_button{
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+}
+
+#detail_button{
+    background-color: transparent;                  
+    border: none;
+    cursor:pointer;                
+    position: fixed;
+    margin-top: 253px;
+    left:50%;
+    margin-left: -13px;
+}
+
+.b_form textarea {
+    position: fixed;
+    background-color: #7094FF;              
+    border-radius: 10px;
+    margin-top:290px;  
+    margin-bottom: 90px;
+    height: 150px;
+    overflow:auto;
+    color: white;
+      
+    width: 94%;                 
+    margin-left: -47%
+}
+
+#search_bar {
+    /*background: #FFF url(http://html-generator.weebly.com/files/theme/input-text-9.png) no-repeat 4px 4px; */
+    
+    background: #FFF;
+    border: 1px solid #999; 
+    outline:0; 
+    padding-left: 25px;
+    height:25px;
+    width: 60%;
+    top: 2px;
+    position: fixed;
+    left: 40px;
+    opacity: 0.8;
+}
+
+#Preference {
+    /*background: #FFF url(http://html-generator.weebly.com/files/theme/input-text-9.png) no-repeat 4px 4px; */
+    
+    background: #FFF;
+    border: 1px solid #999; 
+    outline:0; 
+    padding-left: 25px;
+    height:25px;
+    width: 60%;
+    top: 40px;
+    position: fixed;
+    left: 40px;
+    opacity: 0.8;
+}
+
+#search {
+    position: fixed;
+    top: 0px;
+    right: 2px;
+}
+
+#detail_txt {
+    background: #FFF url(http://html-generator.weebly.com/files/theme/input-text-9.png) no-repeat 4px 4px; 
+    border: 1px solid #999; 
+    outline:0; 
+    padding-left: 25px;
+    height:25px; 
+    width: 300px; 
+    position: fixed;
+    left: 40px;
+    bottom: 5px;
+    opacity: 0.4;
+}
+

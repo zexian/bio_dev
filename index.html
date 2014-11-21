@@ -4,15 +4,14 @@
         <meta charset="utf-8" />
         <meta name="format-detection" content="telephone=no" />
         <meta name="msapplication-tap-highlight" content="no" />
-        <link rel="stylesheet" type="text/css" href="css/index.css" />
         <link rel="stylesheet" type="text/css" href="css/DataFormat.css" />
         <link rel="stylesheet" type="text/css" href="css/BackGround.css" />
         <title>Buoy</title>
-        <!--<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>-->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script type="text/javascript" src="js/jquery.ajax-cross-origin.min.js"></script>
 
         <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+
         <script type="text/javascript" src="js/index.js"></script>      
         <script type="text/javascript" src="js/Functions.js"></script>
         <script type="text/javascript" src="js/cross_domain.js"></script>
@@ -20,20 +19,17 @@
     </head>
 
     <body>
-<!-- ...........................................The Background is defined in the css/background.css-->
-<!-- ...........................................Load the data obtaind from api to here, do this in your defined function, the data format are defined in the css/DataFormat, I use different classes to make sure the data has a absolute and relative postion in the image-->
+        <!-- The Background is defined in the css/background.css-->
+        <!-- Load the data obtaind from api to here, do this in your defined function, the data format are defined in the css/DataFormat, I use different classes to make sure the data has a absolute and relative postion in the image-->
         
         <!-- Address textbox, the initial address is poped in at the js/Functions  ConvertLocation(), check there, the font and style of the textbox are defined in the css/Background.css, after user typed in address, click the addButton and call the addFunction   -->
         <div class="textboxes">
             <ul>
-                <!--<select id="Preference" class="preference" onchange="select_prefer(this.value)">
-                </select>-->
                 <input type="text" id="search_bar" class="preference" placeholder="Format: Evanston, IL" />
+                <button id="search" onclick="search_location.init()">Search</button>
             </ul>
-            <ul><br/><button id="search_bar_submit" onclick="search_location.init()">Fetch Data</button></ul>
+            <ul><br/><select id="Preference" class="preference" onchange="select_prefer(this.value)"></select></ul>
         </div>
-<!-- Address textbox, the initial address is poped in at the js/Functions  ConvertLocation(), check there, the font and style of the textbox are defined in the css/Background.css   -->
-        
         
         
         <div class="outer">
@@ -49,7 +45,7 @@
             <div id="air_temp" class="topleft">
                 <p></p>
             </div> 
-<!-- ..............................................Load the data obtaind from api to here, do this in your defined function, the data format are defined in the css/DataFormat, I use different classes to make sure the data has a absolute and relative postion in the image-->          
+            <!-- the data format are defined in the css/DataFormat, I use different classes to make sure the data has a absolute and relative postion in the image-->        
 
             <div class="ftsign">
                 <p>ft</p>
@@ -60,70 +56,46 @@
         </div>
 
 
-<!-- Detail textbox, If the user click this button, a list of details will be showed by, user could close it by double clicking/Background.css   -->
+        <!-- Detail textbox, If the user click this button, a list of details will be showed by, user could close it by double clicking/Background.css -->
         <div class="Buoy_Detail" id= "buoy_detail">
             <div class="b_form" id="pop_out_form" >                                
                 <textarea id="buoy_detail_data" placeholder="detail buoy data here"></textarea>                
             </div>
         </div>
-<!-- Detail textbox, If the user click this button, a list of details will be showed by, user could close it by double clicking/Background.css   -->
-
-
-
-
-<!-- Address textbox, the initial address is poped in at the js/Functions  ConvertLocation(), check there, the font and style of the textbox are defined in the css/Background.css, after user typed in address, click the addButton and call the addFunction   -->
-        
-<!-- Address textbox, the initial address is poped in at the js/Functions  ConvertLocation(), check there, the font and style of the textbox are defined in the css/Background.css   -->
-        
-
-
-
 
         <!-- <div id="my_footer" class="text-center">
             <p class="muted credit"> Copy Right @ Team Green</p>
         </div> -->
 
-<!-- The three buttons at the conner, the functions of the buttons are defined in the js/Functions setingFunction, socialFunction, addFunction, edit the function there  -->
+        <!-- The three buttons at the conner, the functions of the buttons are defined in the js/Functions setingFunction, socialFunction, addFunction, edit the function there  -->
         <div>
             <button id="map_button" onclick="location.href='https://mapsengine.google.com/15549545334491096835-05414812628978701557-4/mapview/?authuser=0';"><img src="images/middle.png" width="60" height="60" /></button>
         </div>
         <div>
             <button id="manual_button" onclick="location.href='http://www.ndbc.noaa.gov/mobile/';"><img src="images/manual.png" width="35" height="40" /></button>
-            <!--<button id="manual_button"><img src="images/manual.png" width="35" height="40" /></button>-->
         </div>
         <div>
-            <button id="current_location" onClick="generateRequest.init()"><img src="images/location.png" width="40" height="40" /> </button>
+            <button id="address_button" onClick="addFavorite()"><img src="images/address.png" width="30" height="30"/></button>
         </div>
         <div>
-            <button id="address_button" onClick="addressFunction()"><img src="images/address.png" width="30" height="30"/></button>
+            <!--no need this one => use to save favorite-->
+            <!--<button id="current_location" onClick="generateRequest.init()"><img src="images/location.png" width="40" height="40" /></button>-->
+            <button id="current_location" onClick="generateRequest.init()"><img src="images/location.png" width="40" height="40" /></button>
         </div>
         <div>
             <button id="detail_button" onClick="detailFunction()"><img src="images/info.png" width="26" height="26" /></button>
         </div>
 
-<!-- The three buttons at the conner, the functions of the buttons are defined in the js/Functions seetingFunction, socialFunction, addFunction, edit the function there  -->
 
-        <div id="manual_search"><iframe src="http://www.ndbc.noaa.gov/mobile/"></iframe></div>
-
-        <!-- when it is ready, run these functions -->
         <script type="text/javascript">
         $( function() {
+            //app.initialize();
             $('.b_form').hide();
 
-            /*$('#manual_button').click(function(){
-                $('#manual_search').show();
-            });*/
-            $('#manual_search').hide();
-            
             generateRequest.init();
-
             
-      
-            
-                //populate data into the textbox
-
+            //populate data into the textbox
             Populate_Preference(jsonList);
-            //simpleAJAXLib.init('http://www.ndbc.noaa.gov/data/latest_obs/45007.rss',1);
         });
         </script>
 
