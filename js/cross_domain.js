@@ -1,47 +1,40 @@
-function BuoyData  (attribute, values){
 
-    // Add object properties like this
-    this.attribute = attribute;
-    this.values = values;
-}
-    
 var generateRequest = {
     
-    init: function (location) {
-        if (!location)
+    init: function (coords) {
+        if (!coords) {
             this.getCurrentLocation();
+        } else {
+            this.action(coords);
+        }
+    },
+
+    action: function (coords) {
+        var radius = 100;
+        var url = 'http://www.ndbc.noaa.gov/rss/ndbc_obs_search.php?lat=' + coords.lat + '&lon=' + coords.lon + '&radius=' + radius;
+        simpleAJAXLib.init(url,0);
     },
 
     getCurrentLocation: function () {
         getLocation(function(coords){
-            alert('Searching the nearest station from ' + (coords.latitude).toFixed(2) + ', ' + (coords.longitude).toFixed(2));
-            //update the current location here~json, find 1st item and update
-            // for(var i=0;i<jsonList.Table.length;i++){
-            //     if(jsonList.Table[i].prefer_id==1){
-            //         jsonList.Table[i].geolatitude=coords.latitude;
-            //         jsonList.Table[i].geolongtitude=coords.longitude;
-            //     }
-            // }
-
+            //alert('Searching the nearest station from ' + (coords.latitude).toFixed(2) + ', ' + (coords.longitude).toFixed(2));
+            /*
+            update the current location here~json, find 1st item and update
+            for(var i=0;i<jsonList.Table.length;i++) {
+                if(jsonList.Table[i].prefer_id==1){
+                    jsonList.Table[i].geolatitude=coords.latitude;
+                    jsonList.Table[i].geolongtitude=coords.longitude;
+                }
+            }*/
             generateRequest.action(coords);
 
         });
-        /*var coords = {latitude: 42.0576327, longitude: -87.6759644}
-        alert('Searching the nearest station from ' + (coords.latitude).toFixed(2) + ', ' + (coords.longitude).toFixed(2));
-        generateRequest.action(coords);*/
-    },
-
-    action: function (location) {
-        var radius = 100;
-        var url = 'http://www.ndbc.noaa.gov/rss/ndbc_obs_search.php?lat=' + location.latitude + '&lon=' + location.longitude + '&radius=' + radius;
-        simpleAJAXLib.init(url,0);
     }
 }
 
 
 var simpleAJAXLib = {
     
-
     init: function (url, station) {
         this.fetchJSON(url, station);
     },
@@ -64,27 +57,39 @@ var simpleAJAXLib = {
     showNear: function (results) {
         var items = results.query.results.rss.channel.item;
 
+        var nearest = null;
+
+        /* assume numeric 5-digit ID buoy station has all kinds of data 
+        $.each(items, function( i, val ) {
+            var station_name = val.title.split(' ')[1];
+            if(station_name && !isNaN(station_name)) {
+                nearest = station_name;
+                return false;
+            }
+        });*/
+
+        // fetch the nearest data: items[0]
         if(items!=null){
-            var link = items[0].link; //nearest station
-        }else{
-            var link = "http://www.ndbc.noaa.gov/station_page.php?station=chii2"; //nearest station
+            nearest = items[0].title.split(' ')[1].toLowerCase(); //nearest station
         }
 
+        if(nearest == null) {
+            alert("You are too far from beach!!! Give you sunshine from Miami!!!");
+            nearest = "vakf1"; //nearest station
+        }
 
-        
-
-        var url_station = 'http://www.ndbc.noaa.gov/data/latest_obs/' + link.split('station=')[1] + '.rss';
+        var url_station = 'http://www.ndbc.noaa.gov/data/latest_obs/' + nearest + '.rss';
         simpleAJAXLib.fetchJSON(url_station, 1);
     },
 
     showStation: function (results) {
-        //var dataarray = new Array(15);
         var dataarray = [];
         //Get the data out of the results 
         var text = "";
         var text2 = results.query.results.rss.channel.item.description;
         var items2 = text2.split('<strong>');
-
+        
+        alert('Fetch data from nearest: ' + results.query.results.rss.channel.item.title.split('-')[0]);
 
         //parse the data and load the object data to dataarray and text data to text
         for(i = 1 ; i < items2.length;i++){
@@ -127,4 +132,11 @@ var simpleAJAXLib = {
         $('#buoy_detail_data').val(text);
 
     }
+}
+
+function BuoyData  (attribute, values){
+
+    // Add object properties like this
+    this.attribute = attribute;
+    this.values = values;
 }

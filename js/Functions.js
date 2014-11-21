@@ -9,14 +9,15 @@ var jsonList = {"Table" :
                 //add a json data, ways to push in items
                    jsonList.Table.push({"prefer_id" : "1","prefer_name" : "current location ","geolatitude":"42","geolongtitude":"45","URL_Link":"www.ndbc"});
 
+/* not in use
 function settingFunction(){
-    //alert('clicked setting buttion');
     $('#wind_speed').text('80');
 }
-
 function socialFunction(){
     alert('clicked social buttion')        
 }
+*/
+
 function addressFunction(){
     alert('clicked address buttion')   
     if ($('.textboxes').is(':visible')) {
@@ -54,16 +55,8 @@ function Populate_Preference(jsonList){
 
 function getLocation (callback) {
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition( function(position) {
-            callback({latitude: position.coords.latitude, longitude: position.coords.longitude});
-            /*alert('Latitude: '          + position.coords.latitude          + '\n' +
-                  'Longitude: '         + position.coords.longitude         + '\n' +
-                  'Altitude: '          + position.coords.altitude          + '\n' +
-                  'Accuracy: '          + position.coords.accuracy          + '\n' +
-                  'Altitude Accuracy: ' + position.coords.altitudeAccuracy  + '\n' +
-                  'Heading: '           + position.coords.heading           + '\n' +
-                  'Speed: '             + position.coords.speed             + '\n' +
-                  'Timestamp: '         + position.timestamp                + '\n');*/
+      navigator.geolocation.getCurrentPosition( function(position) {
+        callback({lat: position.coords.latitude, lon: position.coords.longitude});
       });
     } else { 
         alert("Geolocation is not supported by this browser.");

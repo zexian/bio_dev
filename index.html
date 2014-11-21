@@ -5,10 +5,8 @@
         <meta name="format-detection" content="telephone=no" />
         <meta name="msapplication-tap-highlight" content="no" />
         <link rel="stylesheet" type="text/css" href="css/index.css" />
-        <link href="css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="css/DataFormat.css" />
         <link rel="stylesheet" type="text/css" href="css/BackGround.css" />
-        <link rel="stylesheet" type="text/css" href="css/style.css" />
         <title>Buoy</title>
         <!--<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>-->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -18,6 +16,7 @@
         <script type="text/javascript" src="js/index.js"></script>      
         <script type="text/javascript" src="js/Functions.js"></script>
         <script type="text/javascript" src="js/cross_domain.js"></script>
+        <script type="text/javascript" src="js/search.js"></script>
     </head>
 
     <body>
@@ -26,13 +25,12 @@
         
         <!-- Address textbox, the initial address is poped in at the js/Functions  ConvertLocation(), check there, the font and style of the textbox are defined in the css/Background.css, after user typed in address, click the addButton and call the addFunction   -->
         <div class="textboxes">
-            
-            <select id="Preference" onchange="select_prefer(this.value)">
-            </select>
-
-            <!-- <ul>
-                <input type="text" id="txt" placeholder="Evanston, IL" />
-            </ul> -->
+            <ul>
+                <!--<select id="Preference" class="preference" onchange="select_prefer(this.value)">
+                </select>-->
+                <input type="text" id="search_bar" class="preference" placeholder="Format: Evanston, IL" />
+            </ul>
+            <ul><br/><button id="search_bar_submit" onclick="search_location.init()">Fetch Data</button></ul>
         </div>
 <!-- Address textbox, the initial address is poped in at the js/Functions  ConvertLocation(), check there, the font and style of the textbox are defined in the css/Background.css   -->
         
@@ -85,7 +83,7 @@
             <p class="muted credit"> Copy Right @ Team Green</p>
         </div> -->
 
-<!-- The three buttons at the conner, the functions of the buttons are defined in the js/Functions seetingFunction, socialFunction, addFunction, edit the function there  -->
+<!-- The three buttons at the conner, the functions of the buttons are defined in the js/Functions setingFunction, socialFunction, addFunction, edit the function there  -->
         <div>
             <button id="map_button" onclick="location.href='https://mapsengine.google.com/15549545334491096835-05414812628978701557-4/mapview/?authuser=0';"><img src="images/middle.png" width="60" height="60" /></button>
         </div>
@@ -94,19 +92,18 @@
             <!--<button id="manual_button"><img src="images/manual.png" width="35" height="40" /></button>-->
         </div>
         <div>
-            
             <button id="current_location" onClick="generateRequest.init()"><img src="images/location.png" width="40" height="40" /> </button>
         </div>
         <div>
-            <button id="address_button"  onClick="addressFunction()"><img src="images/address.png" width="30" height="30"/></button>
+            <button id="address_button" onClick="addressFunction()"><img src="images/address.png" width="30" height="30"/></button>
         </div>
         <div>
-            <button id="detail_button"  onClick="detailFunction()"><img src="images/info.png" width="26" height="26" /></button>
+            <button id="detail_button" onClick="detailFunction()"><img src="images/info.png" width="26" height="26" /></button>
         </div>
 
 <!-- The three buttons at the conner, the functions of the buttons are defined in the js/Functions seetingFunction, socialFunction, addFunction, edit the function there  -->
 
-        <div id="manual_search">XXX<iframe src="http://www.ndbc.noaa.gov/mobile/"></iframe></div>
+        <div id="manual_search"><iframe src="http://www.ndbc.noaa.gov/mobile/"></iframe></div>
 
         <!-- when it is ready, run these functions -->
         <script type="text/javascript">
