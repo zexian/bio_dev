@@ -15,7 +15,7 @@
         <script type="text/javascript" src="js/index.js"></script>      
         <script type="text/javascript" src="js/Functions.js"></script>
         <script type="text/javascript" src="js/cross_domain.js"></script>
-        <script type="text/javascript" src="js/search.js"></script>
+        <script type="text/javascript" src="js/geo.js"></script>
     </head>
 
     <body>
@@ -25,14 +25,16 @@
         <!-- Address textbox, the initial address is poped in at the js/Functions  ConvertLocation(), check there, the font and style of the textbox are defined in the css/Background.css, after user typed in address, click the addButton and call the addFunction   -->
         <div class="textboxes">
             <ul>
-                <input type="text" id="search_bar" class="preference" placeholder="Format: Evanston, IL" />
-                <button id="search" onclick="search_location.init()">Search</button>
+                <input type="text" id="search_bar" class="preference" onchange="search_location.init()" placeholder="Input format: Evanston, IL" />
             </ul>
             <ul><br/><select id="Preference" class="preference" onchange="select_prefer(this.value)"></select></ul>
         </div>
         
-        
+
         <div class="outer">
+            <div id="cur_locat" class="mosttop">
+                <p></p>
+            </div>
             <div id="water_temp" class="bottomleft">
                 <p></p>
             </div>
@@ -89,7 +91,7 @@
             generateRequest.init();
             
             //populate data into the textbox
-            Populate_Preference(jsonList);
+            Populate_Preference();
         });
         </script>
 
