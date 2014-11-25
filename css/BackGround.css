@@ -54,7 +54,7 @@ html{
     outline:none;
     position: fixed;
     left: 0px;
-    top: 0px;
+    top: 35px;
 }
 
 #detail_button{
@@ -112,9 +112,10 @@ html{
 }
 
 #search {
-    position: fixed;
-    top: 0px;
-    right: 2px;
+    position:fixed;
+    top: 2px;
+    right: 5px;
+    height: 28px;
 }
 
 #detail_txt {
