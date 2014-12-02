@@ -93,11 +93,10 @@ var simpleAJAXLib = {
         var items2 = text2.split('<strong>');
 
         
-        //alert('Data from: \n' + station_node.title);
+        alert('Data from: \n' + station_node.title);
 
         // set a localStorage
         localStorage.setItem("currentStation", station_node.title);
-        $('#search_bar').attr("placeholder",station_node.title);
 
         // parse the data and load the object data to dataarray and text data to text
         for(i = 1 ; i < items2.length;i++){
@@ -130,23 +129,14 @@ var simpleAJAXLib = {
                 air_temperature = dataarray[i].values;
             }
         }
+        
 
-        // update info box
         $('#water_temp').text(water_temperature.substring(0, 2));
         $('#water_height').text(water_height.substring(0, 1));
         $('#wind_speed').text(wind_speeds.substring(0, 2));
         $('#air_temp').text(air_temperature.substring(0, 2));
 
         $('#buoy_detail_data').val(text);
-
-
-        // update background
-        if( parseInt(air_temperature.substring(0, 2))<40 ) {
-            $('body').css('background-image','url(images/background_cold.jpg)');
-        }
-        else {
-            $('body').css('background-image','url(images/Background2.jpg)');
-        }
 
     }
 }
