@@ -3,14 +3,26 @@
 
 var search_location = {
     
-    input: 0,
+    search_string: 0,
 
     init: function () {
-        this.input = $('#search_bar').val();
+        var input = $('#search_bar').val();
+        console.log(input);
         $('#search_bar').val('');
 
-        console.log(this.input);
-        this.action();
+        if (input.search(',') > -1) {
+
+            this.search_string = input;
+            this.action();
+
+        } else if (input.length==5 && /^[a-z0-9]+$/i.test(input)) {
+            
+            var url_station = 'http://www.ndbc.noaa.gov/data/latest_obs/' + input + '.rss';
+            simpleAJAXLib.fetchJSON(url_station, 1);
+
+        } else {
+            alert('Please type 5-digits station id or in place format: Evanston, IL ');
+        }
     },
 
     action: function() {
@@ -26,12 +38,7 @@ var search_location = {
 
         // Rua Cafelândia, Carapicuíba, Brasil => Rua%20Cafel%C3%A2ndia,+Carapicu%C3%ADba,+Brasil
         // split by ", " => urlencode each => concat by ",+"
-        var inputs = this.input.split(',');
-        if(inputs.length < 2) {
-            alert('Please type in format: Evanston, IL');
-            return false;
-        }
-
+        var inputs = this.search_string.split(',');
         $.each(inputs, function( i, val ) {
             strings.push( encodeURI( val.replace(/\s/g, '')));
         });

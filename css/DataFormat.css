@@ -46,8 +46,7 @@
 
 .topright {       
     position: relative;
-    width: 100%;
-    top:5%;
+    width: 100%;    
     left: 22%;
     color: #fff;
     font-weight: bold;
@@ -60,7 +59,7 @@
 .mphsign {
     position: absolute;
     width: 100%;
-    top:9%;
+    top:10%;
     left: 37%;        
     color: #fff;
     font-weight: bold;
