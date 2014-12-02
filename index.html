@@ -24,12 +24,19 @@
         
         <!-- Address textbox, the initial address is poped in at the js/Functions  ConvertLocation(), check there, the font and style of the textbox are defined in the css/Background.css, after user typed in address, click the addButton and call the addFunction   -->
         <div class="textboxes">
+<<<<<<< Updated upstream
             <ul>
                 <input type="text" id="search_bar" class="preference" onchange="search_location.init()" placeholder="Input format: Evanston, IL" />
+=======
+            <ul id="search_bar_column">
+                <input type="text" id="search_bar" class="search_bar" onchange="search_location.init()" placeholder="Input format: Evanston, IL" />
+                <button id="address_button" onClick="addFavorite()"><img src="images/address.png" width="27" height="27"/></button>
+>>>>>>> Stashed changes
             </ul>
-            <ul><br/><select id="Preference" class="preference" onchange="select_prefer(this.value)"></select></ul>
+            <!--<ul><select id="Preference" class="preference" onchange="select_prefer(this.value)"></select></ul>-->
         </div>
         
+<<<<<<< Updated upstream
 
         <div class="outer" onClick="detailFunction()">
             <div id="cur_locat" class="mosttop">
@@ -48,27 +55,48 @@
                 <p></p>
             </div> 
             <!-- the data format are defined in the css/DataFormat, I use different classes to make sure the data has a absolute and relative postion in the image-->        
+=======
+        <div id="main_view">
+            <div class="outer">
+                <div id="cur_locat" class="mosttop">
+                    <p></p>
+                </div>
+                <div id="water_temp" class="bottomleft">
+                    <p></p>
+                </div>
+                <div id="water_height" class="bottomright">
+                    <p></p>
+                </div>
+                <div id="wind_speed" class="topright">
+                    <p></p>
+                </div>    
+                <div id="air_temp" class="topleft">
+                    <p></p>
+                </div> 
+                <!-- the data format are defined in the css/DataFormat, I use different classes to make sure the data has a absolute and relative postion in the image-->        
+>>>>>>> Stashed changes
 
-            <div class="ftsign">
-                <p>ft</p>
-            </div> 
-            <div class="mphsign">
-                <p>kts</p>
-            </div> 
-        </div>
-
-
-        <!-- Detail textbox, If the user click this button, a list of details will be showed by, user could close it by double clicking/Background.css -->
-        <div class="Buoy_Detail" id= "buoy_detail">
-            <div class="b_form" id="pop_out_form" >                                
-                <textarea id="buoy_detail_data" placeholder="detail buoy data here"></textarea>                
+                <div class="ftsign">
+                    <p>ft</p>
+                </div> 
+                <div class="mphsign">
+                    <p>mph</p>
+                </div> 
             </div>
-        </div>
 
-        <!-- <div id="my_footer" class="text-center">
-            <p class="muted credit"> Copy Right @ Team Green</p>
-        </div> -->
 
+            <!-- Detail textbox, If the user click this button, a list of details will be showed by, user could close it by double clicking/Background.css -->
+            <div class="Buoy_Detail" id= "buoy_detail">
+                <div class="b_form" id="pop_out_form" >                                
+                    <textarea id="buoy_detail_data" placeholder="detail buoy data here"></textarea>                
+                </div>
+            </div>
+
+            <!-- <div id="my_footer" class="text-center">
+                <p class="muted credit"> Copy Right @ Team Green</p>
+            </div> -->
+
+<<<<<<< Updated upstream
         <!-- The three buttons at the conner, the functions of the buttons are defined in the js/Functions setingFunction, socialFunction, addFunction, edit the function there  -->
         <div>
             <button id="map_button" onclick="location.href='https://mapsengine.google.com/15549545334491096835-05414812628978701557-4/mapview/?authuser=0';"><img src="images/middle.png" width="60" height="60" /></button>
@@ -79,17 +107,39 @@
         </div>
        
         
+=======
+            <!-- The three buttons at the conner, the functions of the buttons are defined in the js/Functions setingFunction, socialFunction, addFunction, edit the function there  -->
+            <div>
+                <button id="map_button" onclick="location.href='https://mapsengine.google.com/15549545334491096835-05414812628978701557-4/mapview/?authuser=0';"><img src="images/map.png" width="60" height="60" /></button>
+            </div>
+            <div>
+                <button id="detail_button" onClick="detailFunction()"><img src="images/info.png" width="26" height="26" /></button>
+            </div>
+            <div><button id="current_location" onclick="generateRequest.init();"><img src="images/location.png" width="60" height="60"></button></div>
+        </div>
+>>>>>>> Stashed changes
 
+        <div id="view_selection"></div>
 
         <script type="text/javascript">
         $( function() {
             //app.initialize();
             $('.b_form').hide();
 
+            $('#view_selection').hide();
+            $('#search_bar_column').click( function(){
+                $('#address_button').hide();
+                $('#main_view').hide();
+                $('#view_selection').show();
+            });
+
             generateRequest.init();
             
+<<<<<<< Updated upstream
             //populate data into the textbox
             Populate_Preference();
+=======
+>>>>>>> Stashed changes
         });
         </script>
 

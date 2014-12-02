@@ -139,7 +139,10 @@ var simpleAJAXLib = {
 
         $('#buoy_detail_data').val(text);
 
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
         // update background
         if( parseInt(air_temperature.substring(0, 2))<40 ) {
             $('body').css('background-image','url(images/background_cold.jpg)');
@@ -148,6 +151,16 @@ var simpleAJAXLib = {
             $('body').css('background-image','url(images/Background2.jpg)');
         }
 
+<<<<<<< Updated upstream
+=======
+        // back to index view
+        $('#main_view').show();
+        $('#address_button').show();
+        $('#view_selection').hide();
+
+        //populate favorite data into list
+        Populate_Preference();
+>>>>>>> Stashed changes
     }
 }
 
