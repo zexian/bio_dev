@@ -37,20 +37,6 @@ function addFavorite() {
 
 function deleteFunction(station_title) {
 
-<<<<<<< Updated upstream
-function Populate_Preference () {
-
-    var listItems= "";
-    var favorite_list = JSON.parse(localStorage.getItem("buoyFav"));
-    for (var i = 0; i < favorite_list.length; i++){
-      listItems+= "<option value='" + favorite_list[i].split(' ')[1].toLowerCase() + "'>" + favorite_list[i] + "</option>";
-    }
-    $("#Preference").html(listItems);
-        
-}
-
-function select_prefer(station_id) {
-=======
 }
 
 function Populate_Preference () {
@@ -88,7 +74,6 @@ function Populate_Preference () {
 
 function select_prefer(station_title) {
     var station_id = station_title.split(' ')[1].toLowerCase();
->>>>>>> Stashed changes
     var url_station = 'http://www.ndbc.noaa.gov/data/latest_obs/' + station_id + '.rss';
     simpleAJAXLib.fetchJSON(url_station, 1);
 } 

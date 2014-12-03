@@ -27,6 +27,23 @@ html{
     margin-left: -30px;
 }
 
+#manual_button{
+    background-color: Transparent;
+    cursor:pointer;
+    position: fixed;
+    border: none;
+    right: 1%;
+    bottom: 0%;
+}
+
+#current_location{
+    background-color: Transparent;
+    cursor:pointer;
+    position: fixed;
+    border: none;
+    left: 1%;
+    bottom: 0%;
+}
 
 #address_button{
     background-color: Transparent;
@@ -40,8 +57,6 @@ html{
     top: 8px;
 }
 
-<<<<<<< Updated upstream
-=======
 #detail_button{
     background-color: transparent;                  
     border: none;
@@ -51,21 +66,17 @@ html{
     left:50%;
     margin-left: -13px;
 }
->>>>>>> Stashed changes
 
 .b_form textarea {
     position: fixed;
     background-color: #7094FF;              
     border-radius: 10px;
-<<<<<<< Updated upstream
-    margin-top:270px;  
-=======
     margin-top:310px;  
->>>>>>> Stashed changes
     margin-bottom: 90px;
     height: 150px;
     overflow:auto;
-    color: white; 
+    color: white;
+      
     width: 94%;                 
     margin-left: -47%
 }
@@ -78,33 +89,13 @@ html{
     outline:0; 
     padding-left: 25px;
     height:25px;
-<<<<<<< Updated upstream
-    width: 70%;
-    top: 2px;
-=======
     width: 60%;
     top: 8px;
->>>>>>> Stashed changes
     position: fixed;
     left: 40px;
     opacity: 0.8;
 }
 
-<<<<<<< Updated upstream
-#Preference {
-    /*background: #FFF url(http://html-generator.weebly.com/files/theme/input-text-9.png) no-repeat 4px 4px; */
-    
-    background: #FFF;
-    border: 1px solid #999; 
-    outline:0; 
-    padding-left: 25px;
-    height:25px;
-    width: 77%;
-    top: 40px;
-    position: fixed;
-    left: 40px;
-    opacity: 0.4;
-=======
 .view_selection_box {
     background-color: white;
 }
@@ -113,7 +104,6 @@ html{
     position: fixed;
     top: 80px;
     text-align: center;
->>>>>>> Stashed changes
 }
 
 #search {
