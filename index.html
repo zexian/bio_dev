@@ -32,7 +32,7 @@
         </div>
         
         <div id="main_view">
-            <div class="outer">
+            <div class="outer" onClick="detailFunction()">
                 <div id="cur_locat" class="mosttop">
                     <p></p>
                 </div>
@@ -54,7 +54,7 @@
                     <p>ft</p>
                 </div> 
                 <div class="mphsign">
-                    <p>mph</p>
+                    <p>kts</p>
                 </div> 
             </div>
 
@@ -75,7 +75,7 @@
                 <button id="map_button" onclick="location.href='https://mapsengine.google.com/15549545334491096835-05414812628978701557-4/mapview/?authuser=0';"><img src="images/map.png" width="60" height="60" /></button>
             </div>
             <div>
-                <button id="detail_button" onClick="detailFunction()"><img src="images/info.png" width="26" height="26" /></button>
+                
             </div>
             <div><button id="current_location" onclick="generateRequest.init();"><img src="images/location.png" width="60" height="60"></button></div>
         </div>

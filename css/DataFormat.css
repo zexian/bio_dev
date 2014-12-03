@@ -5,7 +5,7 @@
     height: 225px;
     left: 50%;
     margin-left: -112.5px;
-    margin-top: 45px;
+    margin-top: 40px;
 }
 
 .bottomleft {
@@ -47,7 +47,6 @@
 .topright {       
     position: relative;
     width: 100%;
-    top:5%;
     left: 22%;
     color: #fff;
     font-weight: bold;

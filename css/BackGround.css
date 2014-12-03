@@ -57,21 +57,13 @@ html{
     top: 8px;
 }
 
-#detail_button{
-    background-color: transparent;                  
-    border: none;
-    cursor:pointer;                
-    position: fixed;
-    margin-top: 273px;
-    left:50%;
-    margin-left: -13px;
-}
+
 
 .b_form textarea {
     position: fixed;
     background-color: #7094FF;              
     border-radius: 10px;
-    margin-top:310px;  
+    margin-top:290px;  
     margin-bottom: 90px;
     height: 150px;
     overflow:auto;
@@ -89,7 +81,7 @@ html{
     outline:0; 
     padding-left: 25px;
     height:25px;
-    width: 60%;
+    width: 77%;
     top: 8px;
     position: fixed;
     left: 40px;
