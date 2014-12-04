@@ -31,6 +31,10 @@ function addFavorite() {
     if ( $.inArray( current_station, favorite_list ) == -1)
         favorite_list.push(current_station);
 
+    while (favorite_list.length>5) {
+        favorite_list.shift();
+    }
+
     localStorage.setItem("buoyFav", JSON.stringify(favorite_list));
     Populate_Preference();
 }

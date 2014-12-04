@@ -17,14 +17,6 @@ var generateRequest = {
 
     getCurrentLocation: function () {
         getLocation(function(coords){
-            /*
-            update the current location here~json, find 1st item and update
-            for(var i=0;i<jsonList.Table.length;i++) {
-                if(jsonList.Table[i].prefer_id==1){
-                    jsonList.Table[i].geolatitude=coords.latitude;
-                    jsonList.Table[i].geolongtitude=coords.longitude;
-                }
-            }*/
             generateRequest.action(coords);
         });
     }
@@ -57,15 +49,6 @@ var simpleAJAXLib = {
 
         var nearest = null;
 
-        /* assume numeric 5-digit ID buoy station has all kinds of data 
-        $.each(items, function( i, val ) {
-            var station_name = val.title.split(' ')[1];
-            if(station_name && !isNaN(station_name)) {
-                nearest = station_name;
-                return false;
-            }
-        });*/
-
         if(items!=null) {
             $.each(items, function(i,val) {
                 if (val.title!='SHIP') {
@@ -86,14 +69,18 @@ var simpleAJAXLib = {
 
     showStation: function (results) {
         var dataarray = [];
+
         //Get the data out of the results 
-        var station_node = results.query.results.rss.channel.item
+        if ( results.query.results == null){
+            alert("No current data available.");
+            return 0;
+        } else {
+            var station_node = results.query.results.rss.channel.item
+        }
+
         var text = "";
         var text2 = station_node.description;
         var items2 = text2.split('<strong>');
-
-        
-        //alert('Data from: \n' + station_node.title);
 
         // set a localStorage
         localStorage.setItem("currentStation", station_node.title);
